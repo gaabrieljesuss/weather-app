@@ -11,7 +11,7 @@ import SwiftUI
 struct weather_appApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WeatherPage()
         }
     }
 }
