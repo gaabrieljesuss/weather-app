@@ -15,7 +15,7 @@ struct WeatherPage: View {
     @StateObject var locationViewModel = LocationViewModel()
     
     init() {
-        self.viewModel = WeatherViewModel(weatherAPI: WeatherAPI())
+        self.viewModel = WeatherViewModel(weatherService: WeatherService(weatherAPI: WeatherAPI()))
     }
     
     var body: some View {

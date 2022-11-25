@@ -7,10 +7,10 @@
 
 import Foundation
 
-class WeatherAPI {
+class WeatherAPI: IWeatherAPI {
     private let baseURL: String = "https://api.open-meteo.com/v1/forecast"
     
-    func getTemperature(latitude: Double, longitude: Double) async throws -> Weather {
+    func fetchForecast(latitude: Double, longitude: Double) async throws -> Weather {
         var url = URL(string: self.baseURL)!
         url.append(queryItems: [
                     URLQueryItem(name: "latitude", value: String(latitude)),

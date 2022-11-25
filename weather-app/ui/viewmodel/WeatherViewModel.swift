@@ -12,10 +12,10 @@ class WeatherViewModel: ObservableObject {
     @Published private var weather: Weather?
     @Published private var isNight: Bool = false
     
-    private var weatherAPI: WeatherAPI
+    private var weatherService: WeatherService
     
-    required init(weatherAPI: WeatherAPI) {
-        self.weatherAPI = weatherAPI
+    required init(weatherService: WeatherService) {
+        self.weatherService = weatherService
     }
     
     func hasData() -> Bool {
@@ -25,7 +25,7 @@ class WeatherViewModel: ObservableObject {
     func fetchWeather(latitude: Double, longitude: Double) {
         Task { @MainActor in
             do {
-                self.weather = try await weatherAPI.getTemperature(latitude: latitude, longitude: longitude)
+                self.weather = try await weatherService.fetchForecast(latitude: latitude, longitude: longitude)
             } catch let error as WeatherError {
                 print(error.message)
             } catch let error {
