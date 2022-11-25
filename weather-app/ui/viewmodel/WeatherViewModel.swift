@@ -18,10 +18,14 @@ class WeatherViewModel: ObservableObject {
         self.weatherAPI = weatherAPI
     }
     
-    func fetchWeather() {
+    func hasData() -> Bool {
+        return self.weather?.currentWeather != nil
+    }
+    
+    func fetchWeather(latitude: Double, longitude: Double) {
         Task { @MainActor in
             do {
-                self.weather = try await weatherAPI.getTemperature(latitude: -9.75164, longitude: -36.6604)
+                self.weather = try await weatherAPI.getTemperature(latitude: latitude, longitude: longitude)
             } catch let error as WeatherError {
                 print(error.message)
             } catch let error {
@@ -35,7 +39,7 @@ class WeatherViewModel: ObservableObject {
         ForEach(1...5, id: \.self) { index in
             let temperature = self.weather?.weeklyForecast.temperatures[index]
             if let temperature = temperature {
-                WeatherDayView(dayOfWeek: "TUE", imageName: getWeatherImageByTemperature(temperature: Int(temperature)), temperature: Int(temperature))
+                WeatherDayView(dayOfWeek: getWeekDay(offset: index), imageName: getWeatherImageByTemperature(temperature: Int(temperature)), temperature: Int(temperature))
             }
         }
     }
@@ -122,4 +126,17 @@ func getWeatherImageByTemperature(temperature: Int) -> String {
         return "snowflake"
     }
     return "cloud.sun.fill"
+}
+
+func getWeekDay(offset: Int) -> String {
+    let currentDate = Date()
+    var dateComponent = DateComponents()
+    dateComponent.day = offset
+    let futureDate = Calendar.current.date(byAdding: dateComponent, to: currentDate)
+
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "E"
+    dateFormatter.locale = Locale.current
+    
+    return dateFormatter.string(from: futureDate!).uppercased()
 }

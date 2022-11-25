@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BE0E56D2930574F00F9E6BE /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0E56C2930574F00F9E6BE /* ErrorView.swift */; };
+		9BEE72B5292FAFA000D7E995 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE72B4292FAFA000D7E995 /* LocationViewModel.swift */; };
 		B42537E7292D0C5500202E9E /* WeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42537E6292D0C5500202E9E /* WeatherError.swift */; };
 		B42537E9292D259F00202E9E /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42537E8292D259E00202E9E /* WeatherViewModel.swift */; };
 		B42537EB292D432200202E9E /* WeatherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42537EA292D432200202E9E /* WeatherButton.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9BE0E56C2930574F00F9E6BE /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		9BEE72B4292FAFA000D7E995 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		B42537E6292D0C5500202E9E /* WeatherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherError.swift; sourceTree = "<group>"; };
 		B42537E8292D259E00202E9E /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		B42537EA292D432200202E9E /* WeatherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherButton.swift; sourceTree = "<group>"; };
@@ -42,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BE0E56E2930593000F9E6BE /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				B4F02080292715D3001811D9 /* WeatherPage.swift */,
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
 		B42537EC292D53D800202E9E /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +90,7 @@
 		B42537F0292D547400202E9E /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				9BE0E56E2930593000F9E6BE /* pages */,
 				B42537F1292D54D400202E9E /* viewmodel */,
 				B42537F2292D54F100202E9E /* views */,
 			);
@@ -88,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				B42537E8292D259E00202E9E /* WeatherViewModel.swift */,
+				9BEE72B4292FAFA000D7E995 /* LocationViewModel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -95,8 +109,8 @@
 		B42537F2292D54F100202E9E /* views */ = {
 			isa = PBXGroup;
 			children = (
-				B4F02080292715D3001811D9 /* WeatherPage.swift */,
 				B42537EA292D432200202E9E /* WeatherButton.swift */,
+				9BE0E56C2930574F00F9E6BE /* ErrorView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -215,6 +229,8 @@
 				B4BE15D7292C1CE2000CFABC /* WeatherAPI.swift in Sources */,
 				B4F020652926CEF7001811D9 /* weather_appApp.swift in Sources */,
 				B4F02081292715D3001811D9 /* WeatherPage.swift in Sources */,
+				9BE0E56D2930574F00F9E6BE /* ErrorView.swift in Sources */,
+				9BEE72B5292FAFA000D7E995 /* LocationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +361,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"weather-app/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "O identificador de localização será utilizado para rastreamento de previsões metereológicas";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "O identificador de localização será utilizado para rastreamento de previsões metereológicas";
+				INFOPLIST_KEY_NSPrincipalClass = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -373,6 +392,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"weather-app/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "O identificador de localização será utilizado para rastreamento de previsões metereológicas";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "O identificador de localização será utilizado para rastreamento de previsões metereológicas";
+				INFOPLIST_KEY_NSPrincipalClass = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
